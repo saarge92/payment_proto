@@ -5,10 +5,26 @@ option go_package = "protobuf/wallet";
 import "google/protobuf/empty.proto";
 
 service WalletService{
-  rpc CreateWallet(CreateWalletMessage) returns (google.protobuf.Empty);
+  rpc CreateWallet(CreateWalletRequest) returns (CreateWalletResponse);
+  rpc Wallets(google.protobuf.Empty) returns (WalletsResponse);
 }
 
-message CreateWalletMessage{
+message CreateWalletRequest{
   string code = 1;
   bool is_default = 2;
+}
+
+message CreateWalletResponse{
+  string external_id = 1;
+}
+
+message WalletsResponse{
+  repeated Wallet wallets = 1;
+}
+
+message Wallet{
+  string external_id = 1;
+  string currency = 2;
+  string balance = 3;
+  bool is_default = 4;
 }
