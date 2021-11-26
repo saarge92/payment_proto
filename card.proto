@@ -4,6 +4,7 @@ option go_package = "protobuf/card";
 
 service CardService{
   rpc CreateCard(CreateCardRequest)returns(CreateCardResponse);
+  rpc MyCards(MyCardsRequest)returns(MyCardsResponse);
 }
 
 message CreateCardRequest{
@@ -16,4 +17,18 @@ message CreateCardRequest{
 
 message CreateCardResponse{
   string external_id = 1;
+}
+
+message MyCardsRequest{}
+
+message MyCardsResponse{
+  repeated Card cards = 1;
+}
+
+message Card{
+  reserved 3;
+  string external_id = 1;
+  string card_number = 2;
+  uint32 expire_month = 4;
+  uint32 expire_year = 5;
 }
