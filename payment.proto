@@ -1,0 +1,17 @@
+syntax = 'proto3';
+package protobuf.payment;
+option go_package = "protobuf/payment";
+
+service PaymentService{
+  rpc Deposit(DepositRequest) returns (DepositResponse);
+}
+
+message DepositRequest{
+  string card_external_id = 1;
+  string wallet_external_id = 3;
+  string amount = 4;
+}
+
+message DepositResponse{
+  string transaction_id = 1;
+}
