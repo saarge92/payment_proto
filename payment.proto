@@ -9,7 +9,7 @@ service PaymentService{
 message DepositRequest{
   string card_external_id = 1;
   string wallet_external_id = 3;
-  string amount = 4;
+  double amount = 4;
 }
 
 message DepositResponse{
