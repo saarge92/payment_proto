@@ -1,7 +1,7 @@
 syntax = 'proto3';
-package protobuf.user;
+package protobuf.core;
 
-option go_package = "protobuf/user_server";
+option go_package = "protobuf/core";
 
 service UserService{
   rpc Signup(SignUpMessage) returns(SignUpResponse);

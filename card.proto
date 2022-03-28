@@ -1,6 +1,7 @@
 syntax = 'proto3';
-package protobuf.card;
-option go_package = "protobuf/card";
+package protobuf.core;
+
+option go_package = "protobuf/core";
 
 service CardService{
   rpc CreateCard(CreateCardRequest)returns(CreateCardResponse);

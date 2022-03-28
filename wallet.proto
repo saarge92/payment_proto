@@ -1,7 +1,7 @@
 syntax = 'proto3';
-package protobuf.wallet;
 
-option go_package = "protobuf/wallet";
+package protobuf.core;
+option go_package = "protobuf/core";
 
 service WalletService{
   rpc CreateWallet(CreateWalletRequest) returns (CreateWalletResponse);
