@@ -8,6 +8,7 @@ import "common.proto";
 
 service PaymentService{
   rpc Deposit(DepositRequest) returns (DepositResponse);
+  rpc List(ListRequest) returns (ListResponse);
 }
 
 message DepositRequest{
@@ -24,9 +25,20 @@ message ListRequest {
   OperationType operation_type = 1;
   Pagination pagination = 2;
 }
+message ListResponse {
+  message CardInfo {
+    string external_id = 1;
+    string number = 2;
+    int64 created_at = 3;
+    bool is_default = 4;
+  }
+  int64 id = 1;
+  CardInfo card_info = 2;
+}
 
 enum OperationType {
-  Deposit = 0;
-  WithDraw = 1;
-  Refund = 2;
+  ALL = 0;
+  Deposit = 1;
+  WithDraw = 2;
+  Refund = 3;
 }
