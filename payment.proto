@@ -32,8 +32,16 @@ message ListResponse {
     int64 created_at = 3;
     bool is_default = 4;
   }
-  int64 id = 1;
-  CardInfo card_info = 2;
+  message OperationInfo {
+    string external_id = 1;
+    double amount = 2;
+    double balance_before = 3;
+    double balance_after = 4;
+    int64 created_at = 5;
+    CardInfo card_info = 6;
+  }
+  repeated OperationInfo operations = 1;
+  int64 count = 2;
 }
 
 enum OperationType {
