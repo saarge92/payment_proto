@@ -13,7 +13,7 @@ message SignUpMessage{
   string login = 1;
   string password = 2;
   string name = 3;
-  uint64 inn = 4;
+  string inn = 4;
   string country = 5;
 }
 
@@ -41,13 +41,8 @@ message SignInMessage{
   string password = 2;
 }
 
-message Role {
-  string uuid = 1;
-  string name = 2;
-}
-
 message SignInResponse{
   uint64 id = 1;
   string token = 2;
-  repeated Role roles = 3;
+  repeated string roles = 3;
 }
